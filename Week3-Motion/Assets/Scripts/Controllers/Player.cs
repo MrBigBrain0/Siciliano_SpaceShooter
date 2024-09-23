@@ -9,7 +9,13 @@ public class Player : MonoBehaviour
     public GameObject bombPrefab;
     public Transform bombsTransform;
 
+    //Veriables for Task 1A
     public Vector3 velocity;
+
+
+    //Veriables for Task 1B
+
+
 
     void Update()
     {
@@ -19,10 +25,14 @@ public class Player : MonoBehaviour
 
     public void PlayerMovement()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
-        velocity = new Vector3 (horizontalInput, verticalInput);
-        transform.position = transform.position + velocity;
+        //Task 1A
+        //float horizontalInput = Input.GetAxis("Horizontal");
+        //float verticalInput = Input.GetAxis("Vertical");
+        //velocity = new Vector3 (horizontalInput, verticalInput);
+        //transform.position = transform.position + velocity;
+
+        //Task 1B
+
     }
 
 }
