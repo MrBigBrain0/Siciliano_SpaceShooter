@@ -14,7 +14,14 @@ public class Player : MonoBehaviour
 
 
     //Veriables for Task 1B
+    public float maxSpeed = 3;
+    public float accesleration;
+    public float accelerationTime;
 
+    public void Start()
+    {
+        accesleration = maxSpeed / accelerationTime;
+    }
 
 
     void Update()
@@ -32,7 +39,15 @@ public class Player : MonoBehaviour
         //transform.position = transform.position + velocity;
 
         //Task 1B
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");   
+        velocity += new Vector3( horizontalInput, verticalInput ) * accesleration * Time.deltaTime ;
+        transform.position = transform.position + velocity ;
 
+        if(accesleration == maxSpeed)
+        {
+            Debug.Log("MAXREACHED");
+        }
     }
 
 }
