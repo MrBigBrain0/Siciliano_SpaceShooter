@@ -18,9 +18,17 @@ public class Player : MonoBehaviour
     public float accesleration;
     public float accelerationTime;
 
+    //Variables for Task 1C
+    public float decelortion;
+    public float decelortionTime; 
+
     public void Start()
     {
+        //Task 1B
         accesleration = maxSpeed / accelerationTime;
+
+        //Task 1C
+        decelortion = maxSpeed * decelortionTime;
     }
 
 
@@ -46,8 +54,15 @@ public class Player : MonoBehaviour
 
         if(accesleration == maxSpeed)
         {
-            Debug.Log("MAXREACHED");
+        Debug.Log("MAXREACHED");
         }
+
+        //Task 1C
+        //float horizontalInput = Input.GetAxis("Horizontal");
+        //float verticalInput = Input.GetAxis("Vertical");
+        //velocity += new Vector3(horizontalInput, verticalInput) * decelortion * Time.deltaTime;
+        //transform.position = transform.position + velocity;
+
     }
 
 }
