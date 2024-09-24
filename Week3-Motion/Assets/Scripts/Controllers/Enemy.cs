@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
 
-        transform.position = new Vector3(Mathf.PingPong(Time.time * speed, 15), transform.position.y, -20 );
+        transform.position = new Vector3(Mathf.PingPong(Time.time * speed, 15), -8 );
 
     }
 
