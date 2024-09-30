@@ -10,17 +10,17 @@ public class Player : MonoBehaviour
     public Transform bombsTransform;
 
     //Veriables for Task 1A
-    public Vector3 velocity;
+    Vector3 velocity;
 
 
     //Veriables for Task 1B
-    public float maxSpeed = 3;
+    public float maxSpeed ;
     public float accesleration;
     public float accelerationTime;
 
     //Variables for Task 1C
     public float decelortion;
-    public float decelortionTime; 
+    public float decelortionTime;
 
     public void Start()
     {
@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
         accesleration = maxSpeed / accelerationTime;
 
         //Task 1C
-        decelortion = maxSpeed * decelortionTime;
+        decelortion = maxSpeed / decelortionTime;
     }
 
 
@@ -48,13 +48,29 @@ public class Player : MonoBehaviour
 
         //Task 1B
         float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");   
-        velocity += new Vector3( horizontalInput, verticalInput ) * accesleration * Time.deltaTime ;
-        transform.position = transform.position + velocity ;
+        float verticalInput = Input.GetAxis("Vertical");
+        Vector3 totalInput = new Vector3(horizontalInput, verticalInput);
 
-        if(accesleration == maxSpeed)
+        if (totalInput.magnitude != 0)
         {
-        Debug.Log("MAXREACHED");
+            velocity += totalInput * accesleration * Time.deltaTime;
+        }
+        else
+        {
+            velocity -= velocity * decelortion * Time.deltaTime;
+        }
+
+        if (velocity.magnitude < 0.001f)
+        {
+            velocity = Vector3.zero;
+        }
+
+        velocity = Vector3.ClampMagnitude(velocity, maxSpeed);
+        transform.position += velocity * Time.deltaTime;
+
+        if (accesleration == maxSpeed)
+        {
+            Debug.Log("MAXREACHED");
         }
 
         //Task 1C
