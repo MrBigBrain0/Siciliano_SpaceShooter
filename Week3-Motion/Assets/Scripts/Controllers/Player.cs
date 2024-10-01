@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using JetBrains.Annotations;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,6 +23,14 @@ public class Player : MonoBehaviour
     public float decelortion;
     public float decelortionTime;
 
+    //Variables for week 4 task 1
+
+    //size of the radar
+    public float radius = 0f;
+    //number of points the radius has
+    public int circlePoints = 6;
+
+
     public void Start()
     {
         //Task 1B
@@ -36,17 +45,18 @@ public class Player : MonoBehaviour
     {
 
         PlayerMovement();
+        EnemyRadar(radius, circlePoints);
     }
 
     public void PlayerMovement()
     {
-        //Task 1A
+        //Week 3 Task 1A
         //float horizontalInput = Input.GetAxis("Horizontal");
         //float verticalInput = Input.GetAxis("Vertical");
         //velocity = new Vector3 (horizontalInput, verticalInput);
         //transform.position = transform.position + velocity;
 
-        //Task 1B
+        //Week 3 Task 1B
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
         Vector3 totalInput = new Vector3(horizontalInput, verticalInput);
@@ -73,12 +83,39 @@ public class Player : MonoBehaviour
             Debug.Log("MAXREACHED");
         }
 
-        //Task 1C
+        //Week 3 Task 1C
         //float horizontalInput = Input.GetAxis("Horizontal");
         //float verticalInput = Input.GetAxis("Vertical");
         //velocity += new Vector3(horizontalInput, verticalInput) * decelortion * Time.deltaTime;
         //transform.position = transform.position + velocity;
-
     }
 
+    //week 4 Task1 
+    public void EnemyRadar(float radius, int circlePoints)
+    {
+
+        //colour of the line
+        Color linecolor;
+
+        if ((enemyTransform.position - transform.position).magnitude < radius)
+        {
+            linecolor = Color.red;
+        }
+        else
+        {
+            linecolor = Color.green;
+        }
+
+        float degre = 360f / circlePoints;
+        float radians = degre * Mathf.Deg2Rad;
+
+        for (int i = 0; i < circlePoints; i++)
+        {
+            Vector3 newPoint = new Vector3(Mathf.Sin( radians * i ), Mathf.Cos(radians * i )) * radius;
+            Vector3 nextPoint = new Vector3(Mathf.Sin( radians * (i + 1)), Mathf.Cos(radians * (i + 1))) * radius;
+            Debug.DrawLine( transform.position + newPoint, transform.position + nextPoint, linecolor);
+
+        }
+
+    }
 }
