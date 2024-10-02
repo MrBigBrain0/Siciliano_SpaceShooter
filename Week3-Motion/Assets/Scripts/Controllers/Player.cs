@@ -23,12 +23,16 @@ public class Player : MonoBehaviour
     public float decelortion;
     public float decelortionTime;
 
-    //Variables for week 4 task 1
+    //Variables for week 4
 
     //size of the radar
     public float radius = 0f;
     //number of points the radius has
     public int circlePoints = 6;
+    //Number of power ups
+    public int numOfPowerUps;
+
+    public GameObject powerUp;
 
 
     public void Start()
@@ -46,6 +50,10 @@ public class Player : MonoBehaviour
 
         PlayerMovement();
         EnemyRadar(radius, circlePoints);
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            SpawnPowerups(radius, numOfPowerUps);
+        }
     }
 
     public void PlayerMovement()
@@ -114,7 +122,19 @@ public class Player : MonoBehaviour
             Vector3 newPoint = new Vector3(Mathf.Sin( radians * i ), Mathf.Cos(radians * i )) * radius;
             Vector3 nextPoint = new Vector3(Mathf.Sin( radians * (i + 1)), Mathf.Cos(radians * (i + 1))) * radius;
             Debug.DrawLine( transform.position + newPoint, transform.position + nextPoint, linecolor);
+        }
 
+    }
+
+    public void SpawnPowerups(float radius, int numberOfPowerups)
+    {
+        float degre = 360f / numberOfPowerups;
+        float radians = degre * Mathf.Deg2Rad;
+
+        for (int i = 0; i < numberOfPowerups; i++)
+        {
+            Vector3 newPoint2 = new Vector3(Mathf.Sin(radians * i), Mathf.Cos(radians * i)) * radius;
+            Instantiate(powerUp, newPoint2 + transform.position, Quaternion.identity);
         }
 
     }
