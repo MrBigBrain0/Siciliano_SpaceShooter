@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class Player : MonoBehaviour
 {
@@ -12,8 +13,15 @@ public class Player : MonoBehaviour
 
     // veriables For final Assingment Task 3
     public Transform blackHole;
+    public Transform blackHole2;
+    public Transform blackHole3;
+    public Transform blackHole4;
     public Transform blackHoleRadius;
-    public float blackRad; 
+    public Transform blackHoleRadius2;
+    public Transform blackHoleRadius3;
+    public Transform blackHoleRadius4;
+    public float blackRad;
+    public float blackRad2;
 
     //Veriables for Task 1A
     Vector3 velocity;
@@ -47,6 +55,7 @@ public class Player : MonoBehaviour
 
         //Task 1C
         decelortion = maxSpeed / decelortionTime;
+
     }
 
 
@@ -60,6 +69,7 @@ public class Player : MonoBehaviour
             SpawnPowerups(radius, numOfPowerUps);
         }
         BlackHoleReset(blackRad);
+        BlackHolePull(blackRad2);
     }
 
     public void PlayerMovement()
@@ -145,11 +155,67 @@ public class Player : MonoBehaviour
 
     }
 
+    //Black hole Task 3 For Final Assignment
     public void BlackHoleReset(float blackRad)
     {
+        // this statment tells the object that the player is in the back hole.
         if((blackHole.position - transform.position).magnitude < blackRad)
         {
+            // this statment teleports the player back to the start when colliding with black hole. 
             transform.position = new Vector3(5, -5);
+        }
+
+        // these are all duplicates for the other blach holes
+        if ((blackHole2.position - transform.position).magnitude < blackRad)
+        {
+            transform.position = new Vector3(5, -5);
+        }
+
+        if ((blackHole3.position - transform.position).magnitude < blackRad)
+        { 
+            transform.position = new Vector3(5, -5);
+        }
+
+        if ((blackHole4.position - transform.position).magnitude < blackRad)
+        {
+            transform.position = new Vector3(5, -5);
+        }
+
+
+    }
+
+    public void BlackHolePull(float blackRad2)
+    {
+        //This if statemnet tells the object that the player is in the black holes radius
+        if((blackHoleRadius.position - transform.position).magnitude < blackRad2)
+        {
+            // creating a local varible called direction using blackhole radius postion and subracting it from player posistion.
+            Vector3 direction = (blackHoleRadius.position - transform.position).normalized;
+
+            // speed at which the player moves towards the blackhole. 
+            transform.position += direction * Time.deltaTime * 1f;
+        }
+
+        // these are all duplicates for the other blach holes
+        if ((blackHoleRadius2.position - transform.position).magnitude < blackRad2)
+        {
+            Vector3 direction = (blackHoleRadius2.position - transform.position).normalized;
+
+            transform.position += direction * Time.deltaTime * 1f;
+        }
+
+        if ((blackHoleRadius3.position - transform.position).magnitude < blackRad2)
+        {
+            Vector3 direction = (blackHoleRadius3.position - transform.position).normalized;
+
+            transform.position += direction * Time.deltaTime * 1f;
+        }
+
+        if ((blackHoleRadius4.position - transform.position).magnitude < blackRad2)
+        {
+            Vector3 direction = (blackHoleRadius4.position - transform.position).normalized;
+
+            transform.position += direction * Time.deltaTime * 1f;
         }
     }
 }
