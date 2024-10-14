@@ -10,6 +10,11 @@ public class Player : MonoBehaviour
     public GameObject bombPrefab;
     public Transform bombsTransform;
 
+    // veriables For final Assingment Task 3
+    public Transform blackHole;
+    public Transform blackHoleRadius;
+    public float blackRad; 
+
     //Veriables for Task 1A
     Vector3 velocity;
 
@@ -54,6 +59,7 @@ public class Player : MonoBehaviour
         {
             SpawnPowerups(radius, numOfPowerUps);
         }
+        BlackHoleReset(blackRad);
     }
 
     public void PlayerMovement()
@@ -137,5 +143,13 @@ public class Player : MonoBehaviour
             Instantiate(powerUp, newPoint2 + transform.position, Quaternion.identity);
         }
 
+    }
+
+    public void BlackHoleReset(float blackRad)
+    {
+        if((blackHole.position - transform.position).magnitude < blackRad)
+        {
+            transform.position = new Vector3(5, -5);
+        }
     }
 }
