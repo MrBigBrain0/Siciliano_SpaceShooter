@@ -10,7 +10,9 @@ public class Player : MonoBehaviour
     public Transform enemyTransform;
     public GameObject bombPrefab;
     public Transform bombsTransform;
-
+    // veriables for FinalAssingment Task 1
+    public Transform asteroidF;
+    public float fieldRad; 
     // veriables For final Assingment Task 3
     public Transform blackHole;
     public Transform blackHole2;
@@ -28,7 +30,7 @@ public class Player : MonoBehaviour
 
 
     //Veriables for Task 1B
-    public float maxSpeed ;
+    public float maxSpeed;
     public float accesleration;
     public float accelerationTime;
 
@@ -68,8 +70,10 @@ public class Player : MonoBehaviour
         {
             SpawnPowerups(radius, numOfPowerUps);
         }
+        //Final Assignment 
         BlackHoleReset(blackRad);
         BlackHolePull(blackRad2);
+        SlowField(fieldRad);
     }
 
     public void PlayerMovement()
@@ -155,7 +159,23 @@ public class Player : MonoBehaviour
 
     }
 
-    //Black hole Task 3 For Final Assignment
+    //Astroid Slow Field Task 1 for Final Assignment 
+    public void SlowField(float fieldRad)
+    {
+        //flag for if the player is in the asteroid field
+        if ((asteroidF.position - transform.position).magnitude < fieldRad)
+        {
+            //caps the max speed to 1f when in the field
+            maxSpeed = 1f;
+        }
+        else
+        {
+            //if the player is not in the field there max speed is returned to normal
+            maxSpeed = 3;
+        }
+    }
+
+    //Black hole Task 3 for Final Assignment
     public void BlackHoleReset(float blackRad)
     {
         // this statment tells the object that the player is in the back hole.

@@ -1717,7 +1717,7 @@ Transform:
   m_GameObject: {fileID: 949015071}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.69, y: -3.41, z: 0}
+  m_LocalPosition: {x: -17.17, y: 4.73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1754,8 +1754,8 @@ Transform:
   m_GameObject: {fileID: 1088617404}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.98, y: 1.38, z: -0.044559628}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -7.87, y: -6.01, z: -0.044559628}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8290172159699651920}
@@ -3133,7 +3133,7 @@ Transform:
   m_GameObject: {fileID: 1573207884}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.59, y: -5.11, z: -0.033850815}
+  m_LocalPosition: {x: -1.44, y: 7.09, z: -0.033850815}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3905,6 +3905,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6890330259706833056, guid: abc125f00ae369940b2c5c0275186637, type: 3}
+      propertyPath: fieldRad
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6890330259706833056, guid: abc125f00ae369940b2c5c0275186637, type: 3}
       propertyPath: maxSpeed
       value: 3
       objectReference: {fileID: 0}
@@ -3912,6 +3916,10 @@ PrefabInstance:
       propertyPath: movement
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6890330259706833056, guid: abc125f00ae369940b2c5c0275186637, type: 3}
+      propertyPath: asteroidF
+      value: 
+      objectReference: {fileID: 1088617405}
     - target: {fileID: 6890330259706833056, guid: abc125f00ae369940b2c5c0275186637, type: 3}
       propertyPath: blackHole
       value: 
