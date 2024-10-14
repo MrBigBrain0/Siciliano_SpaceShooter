@@ -262,6 +262,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 596075294928896946, guid: c3b47d100d80f96419fd12c13303c43e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 596075294928896946, guid: c3b47d100d80f96419fd12c13303c43e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2301990505270886567, guid: c3b47d100d80f96419fd12c13303c43e, type: 3}
       propertyPath: m_Name
       value: Orbital System
@@ -306,20 +314,32 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4810190612781865404, guid: c3b47d100d80f96419fd12c13303c43e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4810190612781865404, guid: c3b47d100d80f96419fd12c13303c43e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4810190612781865404, guid: c3b47d100d80f96419fd12c13303c43e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 4810190612781865404, guid: c3b47d100d80f96419fd12c13303c43e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.78
+      objectReference: {fileID: 0}
     - target: {fileID: 8382019928816532762, guid: c3b47d100d80f96419fd12c13303c43e, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 207964601}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 859344701623534545, guid: c3b47d100d80f96419fd12c13303c43e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3b47d100d80f96419fd12c13303c43e, type: 3}
---- !u!4 &207964601 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 596075294928896946, guid: c3b47d100d80f96419fd12c13303c43e, type: 3}
-  m_PrefabInstance: {fileID: 207964600}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &228963359
 PrefabInstance:
   m_ObjectHideFlags: 0
